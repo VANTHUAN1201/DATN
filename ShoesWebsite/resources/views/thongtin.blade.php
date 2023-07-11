@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+@include('.layout.header')
+<body>
+@if (count($errors) > 0)
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li class="text-danger">{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
+@if ($message = \Illuminate\Support\Facades\Session::get('error'))
+    <div class="alert alert-danger alert-danger" style="text-align: center">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
+@if ($message = \Illuminate\Support\Facades\Session::get('message'))
+    <div class="alert alert-success alert-success" style="text-align: center">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong style="text-align: center">{{ $message }}</strong>
+    </div>
+@endif
+<div class="colorlib-loader"></div>
+
+<div id="page">
+   @include('.layout.nav')
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="bread"><span><a href="{{\Illuminate\Support\Facades\URL::to('home')}}">Trang chủ</a></span> / <span>About</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="colorlib-about">
+        <div class="container">
+            <div class="row row-pb-lg">
+                <div class="col-sm-6 mb-3">
+                    <div class="video colorlib-video" style="background-image: url(../../public/client/images/about.jpg);">
+                        <a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i class="icon-play3"></i></a>
+                        <div class="overlay"></div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="about-wrap">
+                        <h2>Footwear the leading eCommerce Store around the Globe</h2>
+                        <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+                        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   @include('.layout.footer')
+</div>
+
+@include('.layout.script')
+
+</body>
+</html>
+
